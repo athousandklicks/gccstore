@@ -4,6 +4,8 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Tag;
+
 
 class TagController extends Controller
 {
@@ -14,7 +16,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        return Tag::latest()->paginate(5);
     }
 
     /**
@@ -25,7 +27,13 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required|string|max:191',
+        ]);
+
+        return Tag::create([
+            'name' => $request['name'],
+        ]);
     }
 
     /**
