@@ -7,7 +7,7 @@
 				<div class="row">
 					<div class="col-md-6 col-sm-6 col-6 col-lg-2">
 						<div class="logo">
-							<a href="index.html">
+							<a href="/" >
 								<img src="/images/logo/logo.png" alt="logo images">
 							</a>
 						</div>
@@ -15,23 +15,32 @@
 					<div class="col-lg-8 d-none d-lg-block">
 						<nav class="mainmenu__nav">
 							<ul class="meninmenu d-flex justify-content-start">
-								<li class="drop with--one--item"><a href="index.html">Home</a></li>
-                                <li class="drop"><a href="#">About</a>
+								<li class="drop with--one--item">
+                                    <router-link :to="{ name: 'home' }">Home
+                                    </router-link>
+                                </li>
+                                <li class="drop"><a>About</a>
 									<div class="megamenu dropdown">
 										<ul class="item item01">
 
-											<li class="label2"><a href="portfolio.html">Ministry</a>
+											<li class="label2"><a>Ministry</a>
 												<ul>
-													<li><a href="portfolio.html">Believe</a></li>
-													<li><a href="portfolio-details.html">Vision</a></li>
-                                                    <li><a href="portfolio-details.html">Mission</a></li>
+													<li><router-link :to="{ name: 'believe' }">
+                                                        Believe
+                                                        </router-link></li>
+													<li><router-link :to="{ name: 'vision' }">
+                                                        Vision
+                                                        </router-link></li>
+                                                    <li><router-link :to="{ name: 'mission' }">
+                                                        Mission
+                                                        </router-link></li>
 												</ul>
 											</li>
 
-                                            <li class="label2"><a href="portfolio.html">Pastors</a>
+                                            <li class="label2"><a>Pastors</a>
 												<ul>
-													<li><a href="portfolio.html">Pst. Tunde Ayeni</a></li>
-													<li><a href="portfolio-details.html">Pst. Sharon Ayeni</a></li>
+													<li><router-link :to="{ name: 'tunde' }">Pst. Tunde Ayeni</router-link></li>
+													<li><router-link :to="{ name: 'sharon' }">Pst. Sharon Ayeni</router-link></li>
 
 												</ul>
 											</li>
@@ -41,36 +50,40 @@
 									</div>
 								</li>
 
-								<li class="drop"><a href="shop-grid.html">Store</a>
+								<li class="drop"><a>Store</a>
 									<div class="megamenu mega03">
 										<ul class="item item03">
 											<li class="title">Audio Messages</li>
-                                            <li><a href="shop-grid.html">Featured </a></li>
-											<li><a href="shop-grid.html">CD Sermons </a></li>
-											<li><a href="shop-grid.html">Digital Sermons </a></li>
-											<li><a href="shop-grid.html">CD Albums </a></li>
-											<li><a href="shop-grid.html">Resource Bundles </a></li>
+
+											<li><router-link :to="{ name: 'cdsermons' }">CD Sermons </router-link></li>
+											<li><router-link :to="{ name: 'digitalsermons' }">Digital Sermons </router-link></li>
+											<li><router-link :to="{ name: 'cdalbums' }">CD Albums </router-link></li>
+                                            <li><router-link :to="{ name: 'feature' }">Featured </router-link></li>
+                                            <li><router-link :to="{ name: 'popular' }">Popular </router-link></li>
+											<li><router-link :to="{ name: 'resourcebundles' }">Resource Bundles </router-link></li>
+
 										</ul>
 										<ul class="item item03">
 											<li class="title">Books</li>
-											<li><a href="shop-grid.html">Tunde Ayeni</a></li>
+											<li><router-link :to="{ name: 'books' }">Tunde Ayeni</router-link></li>
 
 										</ul>
 										<ul class="item item03">
 											<li class="title">Music</li>
-                                            <li><a href="shop-grid.html">Solomon Lange</a></li>
-											<li><a href="shop-grid.html">Japhy Davies </a></li>
-											<li><a href="shop-grid.html">Opera Davies</a></li>
-											<li><a href="shop-grid.html">Joey</a></li>
-											<li><a href="shop-grid.html">PV</a></li>
-                                            <li><a href="shop-grid.html">Steve Willies</a></li>
-                                            <li><a href="shop-grid.html">Emmy Abraham</a></li>
+                                            <li><router-link :to="{ name: 'allmusic' }">All</router-link></li>
+                                            <li><router-link :to="{ name: 'lange' }">Solomon Lange</router-link></li>
+											<li><router-link :to="{ name: 'japhy' }">Japhy Davies </router-link></li>
+											<li><router-link :to="{ name: 'opera' }">Opera Davies</router-link></li>
+											<li><router-link :to="{ name: 'joey' }">Joey</router-link></li>
+											<li><router-link :to="{ name: 'pv' }">PV</router-link></li>
+                                            <li><router-link :to="{ name: 'steve' }">Steve Willies</router-link></li>
+                                            <li><router-link :to="{ name: 'emmy' }">Emmy Abraham</router-link></li>
 										</ul>
 									</div>
 								</li>
 
-								<li><a href="contact.html">Contact</a></li>
-                                <li><a href="contact.html"><span class="donate">Donate</span></a></li>
+								<li><router-link :to="{ name: 'contact' }">Contact</router-link></li>
+                                <li><router-link :to="{ name: 'donate' }"><span class="donate">Donate</span></router-link></li>
 							</ul>
 						</nav>
 					</div>
@@ -168,10 +181,27 @@
 												<div class="switcher-currency-trigger">
 													<div class="setting__menu">
 
-														<span><a href="#">My Account</a></span>
+														<span>
+                                                            <router-link :to="{ name: 'login' }" v-if="!isLoggedIn">Sign In
+                                                            </router-link>
+                                                        </span>
 
-														<span><a href="#">Sign In</a></span>
-														<span><a href="#">Create An Account</a></span>
+                                                        <span v-if="isLoggedIn">
+                                                            <router-link :to="{ name: 'userboard' }" v-if="user_type == 0"> Hi, {{name}}
+                                                            </router-link>
+
+                                                            <router-link :to="{ name: 'admin' }" v-if="user_type == 1"> Hi, {{name}}
+                                                            </router-link>
+                                                        </span>
+
+
+														<span><router-link :to="{ name: 'register' }" v-if="!isLoggedIn" >Create An Account</router-link></span>
+
+                                                        <span><a @click="logout">
+                                                            Logout
+                                                        </a>
+
+                                                        </span>
 													</div>
 												</div>
 											</div>
@@ -187,21 +217,21 @@
 					<div class="col-lg-12 d-none">
 						<nav class="mobilemenu__nav">
 							<ul class="meninmenu">
-								<li><a href="index.html">Home</a></li>
+								<li><router-link :to="{ name: 'home' }">Home</router-link></li>
 								<li><a href="#">About</a>
 									<ul>
-										<li><a href="portfolio.html">Ministry</a>
+										<li><a>Ministry</a>
 											<ul>
-												<li><a href="portfolio.html">Believe</a></li>
-													<li><a href="portfolio-details.html">Vision</a></li>
-                                                    <li><a href="portfolio-details.html">Mission</a></li>
+												<li><router-link :to="{ name: 'believe' }">Believe</router-link></li>
+													<li><router-link :to="{ name: 'vision' }">Vision</router-link></li>
+                                                    <li><router-link :to="{ name: 'mission' }">Mission</router-link></li>
 											</ul>
 										</li>
 
-                                        <li><a href="portfolio.html">Pastors</a>
+                                        <li><a>Pastors</a>
 											<ul>
-													<li><a href="portfolio.html">Pst. Tunde Ayeni</a></li>
-													<li><a href="portfolio-details.html">Pst. Sharon Ayeni</a></li>
+													<li><router-link :to="{ name: 'tunde' }">Pst. Tunde Ayeni</router-link></li>
+													<li><router-link :to="{ name: 'sharon' }">Pst. Sharon Ayeni</router-link></li>
 
 												</ul>
 										</li>
@@ -212,41 +242,41 @@
                                 <li><a href="#">Store</a>
 									<ul>
 
-										<li><a href="portfolio.html">Audio Messages</a>
+										<li><a >Audio Messages</a>
 											<ul>
-                                                <li><a href="shop-grid.html">Featured </a></li>
-                                                <li><a href="shop-grid.html">CD Sermons </a></li>
-                                                <li><a href="shop-grid.html">Digital Sermons </a></li>
-                                                <li><a href="shop-grid.html">CD Albums </a></li>
-                                                <li><a href="shop-grid.html">Resource Bundles </a></li>
+
+                                                <li><router-link :to="{ name: 'cdsermons' }">CD Sermons </router-link></li>
+                                                <li><router-link :to="{ name: 'digitalsermons' }">Digital Sermons </router-link></li>
+                                                <li><router-link :to="{ name: 'cdalbums' }">CD Albums </router-link></li>
+                                                <li><router-link :to="{ name: 'feature' }">Featured </router-link></li>
+                                                <li><router-link :to="{ name: 'popular' }">Popular </router-link></li>
+                                                <li><router-link :to="{ name: 'resourcebundles' }">Resource Bundles </router-link></li>
 											</ul>
 										</li>
 
-                                        <li><a href="portfolio.html">Books</a>
+                                        <li><a>Books</a>
 											<ul>
-
-                                                <li><a href="shop-grid.html">Tunde Ayeni</a></li>
-
+                                                <li><router-link :to="{ name: 'books' }">Tunde Ayeni</router-link></li>
 											</ul>
 										</li>
 
-                                        <li><a href="portfolio.html">Music</a>
+                                        <li><a>Music</a>
 											<ul>
 
-                                            <li><a href="shop-grid.html">Solomon Lange</a></li>
-											<li><a href="shop-grid.html">Japhy Davies </a></li>
-											<li><a href="shop-grid.html">Opera Davies</a></li>
-											<li><a href="shop-grid.html">Joey</a></li>
-											<li><a href="shop-grid.html">PV</a></li>
-                                            <li><a href="shop-grid.html">Steve Willies</a></li>
-                                            <li><a href="shop-grid.html">Emmy Abraham</a></li>
+                                            <li><router-link :to="{ name: 'lange' }">Solomon Lange</router-link></li>
+											<li><router-link :to="{ name: 'japhy' }">Japhy Davies </router-link></li>
+											<li><router-link :to="{ name: 'opera' }">Opera Davies</router-link></li>
+											<li><router-link :to="{ name: 'joey' }">Joey</router-link></li>
+											<li><router-link :to="{ name: 'pv' }">PV</router-link></li>
+                                            <li><router-link :to="{ name: 'steve' }">Steve Willies</router-link></li>
+                                            <li><router-link :to="{ name: 'emmy' }">Emmy Abraham</router-link></li>
 											</ul>
 										</li>
 
 									</ul>
 								</li>
-								<li><a href="contact.html">Contact</a></li>
-                                <li><a href="contact.html"><span class="donate">Donate</span></a></li>
+								<li><router-link :to="{ name: 'contact' }">Contact</router-link></li>
+                                <li><router-link :to="{ name: 'donate' }"><span class="donate">Donate</span></router-link></li>
 							</ul>
 						</nav>
 					</div>
@@ -273,6 +303,96 @@
 			</div>
 		</div>
 		<!-- End Search Popup -->
+
+
+           <!-- Register Modal -->
+            <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                <div class="modal-body">
+                     <div class="form-group">
+                        <input v-model="name" type="text" name="name"
+                            placeholder="Name"
+                            class="form-control">
+
+                    </div>
+
+                     <div class="form-group">
+                        <input v-model="email" type="email" name="email"
+                            placeholder="Email Address"
+                            class="form-control">
+
+                    </div>
+
+                    <div class="form-group">
+                        <input v-model="password" type="password" name="password" placeholder="Password" id="password"
+                        class="form-control">
+
+                    </div>
+
+                      <div class="form-group">
+                        <input v-model="password_confirmation" type="password" name="password-confirm" placeholder="Confirm Password" id="password-confirm"
+                        class="form-control">
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" @click="register">Create</button>
+                </div>
+
+                </form>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Modal -->
+            <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                <div class="modal-body">
+
+                     <div class="form-group">
+                        <input v-model="login_email" type="email" name="email"
+                            placeholder="Email Address"
+                            class="form-control">
+
+                    </div>
+
+                    <div class="form-group">
+                        <input v-model="login_password" type="password" name="password" placeholder="Password" id="password"
+                        class="form-control">
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" @click="login">Login</button>
+                </div>
+
+                </form>
+
+                </div>
+            </div>
+        </div>
+
 	</div>
 	<!-- //Main wrapper -->
 
@@ -280,9 +400,158 @@
 
 <script>
     export default {
-        name: "Navbar",
+         data() {
+            return {
+                name : "",
+                email : "",
+                password : "",
+                password_confirmation : "",
+
+                login_email : "",
+                login_password : "",
+
+            // login_name: null,
+            user_type: 0,
+            isLoggedIn: localStorage.getItem('jwt') != null
+            }
+        },
+        methods: {
+
+
+            registerModal(){
+                // this.form.reset();
+                $('#registerModal').modal('show');
+            },
+            loginModal(){
+                // this.form.reset();
+                $('#loginModal').modal('show');
+            },
+
+            register(e){
+
+                e.preventDefault()
+
+                if (this.password === this.password_confirmation)
+                {
+                    axios.post('api/register', {
+                        name: this.name,
+                        email: this.email,
+                        password: this.password,
+                        c_password : this.password_confirmation
+                      })
+                      .then(response => {
+                        localStorage.setItem('user',JSON.stringify(response.data.user))
+                        localStorage.setItem('jwt',response.data.token)
+                        console.log(JSON.stringify(response.data.user))
+
+                        // if (localStorage.getItem('jwt') != null){
+                        //     this.$emit('loggedIn')
+                        //     if(this.$route.params.nextUrl != null){
+                        //         this.$router.push(this.$route.params.nextUrl)
+                        //     }
+                        //     else{
+                        //         this.$router.push('/')
+                        //     }
+                        // }
+                      })
+                      .catch(error => {
+                        console.error(error);
+                      });
+                } else {
+                    this.password = ""
+                    this.passwordConfirm = ""
+
+                    return alert('Passwords do not match')
+                }
+            },
+
+            login(e){
+                e.preventDefault()
+                // this.$Progress.start();
+
+                    axios.post('api/login', {
+                        email: this.login_email,
+                        password: this.login_password
+                      })
+                      .then(response => {
+                        FireEvent.$emit('AfterLogin');
+                        let is_admin = response.data.user.is_admin
+                        localStorage.setItem('user',JSON.stringify(response.data.user))
+                        localStorage.setItem('jwt',response.data.token)
+
+                         $('#loginModal').modal('hide')
+
+
+                        if (localStorage.getItem('jwt') != null){
+                          // this.$emit('loggedIn')
+                            if(this.$route.params.nextUrl != null){
+                                this.$router.push(this.$route.params.nextUrl)
+                            }
+                            else {
+                                if(is_admin== 1){
+                                    this.$router.push('admin')
+                                    toast.fire({
+                                        icon: 'success',
+                                        title: 'Welcome to the Admin Dashboard'
+                                    })
+                                }
+                                else {
+                                    this.$router.push('dashboard')
+                                    toast.fire({
+                                        icon: 'success',
+                                        title: 'Login successfully! Happy Shopping'
+                                    })
+
+                                }
+                            }
+
+                        }
+
+                      })
+                      .catch(function (error) {
+                        console.log(error)
+                        toast.fire({
+                            icon: 'error',
+                            title: 'Unable to sign in User. An Error Occured!'
+                        })
+                      });
+            },
+            setDefaults(){
+                if(this.isLoggedIn){
+                    let user = JSON.parse(localStorage.getItem('user'))
+                    this.name = user.name
+                    this.user_type = user.is_admin
+                    console.log(name)
+                    console.log(user_type)
+                }
+                },
+            change(){
+                    this.isLoggedIn = localStorage.getItem('jwt') != null
+                    this.setDefaults()
+                },
+
+            logout(){
+
+                localStorage.removeItem('jwt')
+                localStorage.removeItem('user')
+                if (localStorage.getItem('jwt') == null){
+                    console.log('User logged out')
+                }
+               this.change()
+                this.$router.push('/')
+            },
         mounted() {
-            console.log('Component mounted.')
+
+        },
+
+        created() {
+           this.setDefaults()
+           FireEvent.$on('AfterLogin',() => {
+               this.setDefaults()
+           });
+
         }
+
+    }
     }
 </script>

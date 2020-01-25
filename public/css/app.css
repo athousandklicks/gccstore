@@ -34114,6 +34114,13 @@ a.checkout__title {
   outline: 0;
 }
 
+.section-padding--lg {
+  padding-top: 60px;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 /*********************************************************************************
 
 	Template Name: Boighor Bookshop Responsive Bootstrap4 Template
@@ -40034,7 +40041,8 @@ readers do not read off random characters that represent icons */
 }
 
 .router-link-exact-active {
-  background-color: #3f51b5;
-  color: #fff !important;
+  background-color: none;
+  color: #e15f09 !important;
+  line-height: 0;
 }
 

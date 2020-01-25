@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Auth;
+use Validator;
+
+
 
 class UserController extends Controller
 {
@@ -77,4 +81,58 @@ class UserController extends Controller
     {
         //
     }
+
+    public function login(Request $request)
+    {
+        $credentials = [
+            'email' => $request->get('email'),
+            'password' => $request->get('password'),
+        ];
+
+        //return response()->json($credentials);
+
+        $status = 401;
+        $response = ['error' => 'Unauthorised'];
+
+        $status = $request->get('email');
+        $response = $request->get('password');
+
+
+        if (Auth::attempt($credentials)) {
+            $status = 200;
+            $response = [
+                'token' => Auth::user()->createToken('gccStore')->accessToken,
+                'user' => Auth::user()
+            ];
+        }
+         return response()->json($response, $status);
+    }
+
+    public function register(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+            'c_password' => 'required|same:password',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 401);
+        }
+
+        $input = $request->all();
+        $input['password'] = bcrypt($input['password']);
+
+        $user = User::create($input);
+
+        $success = [
+            'user' => $user,
+            'token' => $user->createToken('gccStore')->accessToken,
+        ];
+
+        return response()->json($success);
+    }
+
+
 }

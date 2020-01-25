@@ -1,50 +1,31 @@
 <template>
-    <!-- Start Slider area -->
-        <div class="slider-area brown__nav slider--15 slide__activation slide__arrow01 owl-carousel owl-theme">
-        	<!-- Start Single Slide -->
-	        <div class="slide animation__style10 bg-image--1 fullscreen align__center--left">
-	            <div class="container">
-	            	<div class="row">
-	            		<div class="col-lg-12">
-	            			<div class="slider__content">
-		            			<div class="contentbox">
-		            				<h2>Buy <span>your </span></h2>
-		            				<h2>favourite <span>Book </span></h2>
-		            				<h2>from <span>Here </span></h2>
-				                   	<a class="shopbtn" href="#">shop now</a>
-		            			</div>
-	            			</div>
-	            		</div>
-	            	</div>
-	            </div>
-            </div>
-            <!-- End Single Slide -->
-        	<!-- Start Single Slide -->
-	        <div class="slide animation__style10 bg-image--7 fullscreen align__center--left">
-	            <div class="container">
-	            	<div class="row">
-	            		<div class="col-lg-12">
-	            			<div class="slider__content">
-		            			<div class="contentbox">
-		            				<h2>Buy <span>your </span></h2>
-		            				<h2>favourite <span>Book </span></h2>
-		            				<h2>from <span>Here </span></h2>
-				                   	<a class="shopbtn" href="#">shop now</a>
-		            			</div>
-	            			</div>
-	            		</div>
-	            	</div>
-	            </div>
-            </div>
-            <!-- End Single Slide -->
+<div>
+    		<section class="wn__newsletter__area bg-image--2">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-7 offset-lg-5 col-md-12 col-12 ptb--150">
+						<div class="section__title text-center">
+							<h2>Cover Banner</h2>
+						</div>
+						<div class="newsletter__block text-center">
+							<p>Subscribe to our newsletters now and stay up-to-date with new collections, the latest lookbooks and exclusive offers.</p>
+							<form action="#">
+								<div class="newsletter__box">
+									<input type="email" placeholder="Enter your e-mail">
+									<button>Subscribe</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
         </div>
-        <!-- End Slider area -->
 </template>
 
 <script>
     export default {
 
-        name: "Banner",
         mounted() {
             console.log('Component mounted.')
         }

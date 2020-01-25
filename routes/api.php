@@ -19,5 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::apiResources(['user' => 'API\UserController']);
+
 Route::apiResources(['category' => 'API\CategoryController']);
 Route::apiResources(['tag' => 'API\TagController']);
+Route::post('login', 'API\UserController@login');
+Route::post('register', 'API\UserController@register');

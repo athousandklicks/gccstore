@@ -19,6 +19,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="stylesheet" href="/css/app.css">
+
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div id="app">
@@ -27,9 +29,9 @@
 <!-- ./wrapper -->
 
 <script src="/js/app.js"></script>
-<script src="js/vendor/jquery-3.2.1.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+{{-- <script src="js/vendor/jquery-3.2.1.min.js"></script> --}}
+	{{-- <script src="js/popper.min.js"></script> --}}
+	{{-- <script src="js/bootstrap.min.js"></script> --}}
 	<script src="js/plugins.js"></script>
 	<script src="js/active.js"></script>
 {{-- <script src="js/modernizr-3.5.0.min.js"></script> --}}
